@@ -15,7 +15,7 @@ class User extends Authenticatable
    
     
         protected $fillable = [
-            'name', 'email', 'password','contact_number', 'alt_contact_number', 'address', 'designation_id', 'status'
+            'name', 'email', 'password','is_admin','contact_number', 'alt_contact_number', 'address', 'designation_id', 'status'
         ];
     
        
@@ -40,6 +40,8 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_admin' => 'boolean', // Ensure it's casted as a boolean
+
         ];
     }
 

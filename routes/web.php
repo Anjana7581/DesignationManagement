@@ -4,33 +4,32 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Auth;
 
 // Public Routes
 Route::get('/', function () {
     return view('welcome');
 });
 
-// Routes for Authenticated Users
+// Authenticated User Routes
 Route::middleware(['auth'])->group(function () {
-
-    // Redirect users based on role after login
+    
     Route::get('/dashboard', function () {
-        if (Auth::user()->isAdmin()) {
-            return redirect('/admin/dashboard');
-        }
         return view('dashboard'); // Normal user dashboard
     })->name('dashboard');
 
-    // Admin Routes
-    Route::middleware(['admin'])->group(function () {
-        Route::get('/admin/dashboard', function () {
-            return view('admin.dashboard'); // Admin dashboard
-        })->name('admin.dashboard');
+// Admin Routes (Only for Admins)
+Route::middleware(['admin'])->group(function () {
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard'); // Admin dashboard
+    })->name('admin.dashboard');
 
-        Route::resource('designations', DesignationController::class);
-        Route::resource('users', UserController::class);
-    });
+    Route::get('/admin/designations', [DesignationController::class, 'index'])->name('admin.designations.index');
+    Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
+});
+
+
+   
+    
 
     // User Profile Routes
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
