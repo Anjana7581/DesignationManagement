@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Designation::class);
     }
+
+    public function isAdmin()
+{
+    return $this->is_admin; // Returns true if the user is an admin
+}
 }
