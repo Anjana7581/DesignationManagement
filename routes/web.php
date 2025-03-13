@@ -30,7 +30,14 @@ Route::middleware(['admin'])->group(function () {
         Route::get('/admin/designations/{id}/edit', [DesignationController::class, 'edit'])->name('admin.designations.edit');
         Route::put('/admin/designations/{id}', [DesignationController::class, 'update'])->name('admin.designations.update');
     
-    Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
+        Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
+        Route::get('/admin/users/create', [UserController::class, 'create'])->name('admin.users.create');
+        Route::post('/admin/users', [UserController::class, 'store'])->name('admin.users.store');
+        Route::get('/admin/users/{id}/edit', [UserController::class, 'edit'])->name('admin.users.edit');
+        Route::put('/admin/users/{id}', [UserController::class, 'update'])->name('admin.users.update');
+        Route::post('/admin/users/filter', [UserController::class, 'filter'])->name('admin.users.filter');
+
+
 });
 
 
