@@ -1,4 +1,3 @@
-Here’s a well-structured **README.md** file for your project. Customize it as needed before pushing it to GitHub.  
 
 ---
 
