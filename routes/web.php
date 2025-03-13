@@ -24,9 +24,12 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 
 
-    Route::get('/admin/designations', [DesignationController::class, 'index'])->name('admin.designations.index');
-    Route::resource('/admin/designations', DesignationController::class);
-
+        Route::get('/admin/designations', [DesignationController::class, 'index'])->name('admin.designations.index');
+        Route::get('/admin/designations/create', [DesignationController::class, 'create'])->name('admin.designations.create');
+        Route::post('/admin/designations', [DesignationController::class, 'store'])->name('admin.designations.store');
+        Route::get('/admin/designations/{id}/edit', [DesignationController::class, 'edit'])->name('admin.designations.edit');
+        Route::put('/admin/designations/{id}', [DesignationController::class, 'update'])->name('admin.designations.update');
+    
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
 });
 
