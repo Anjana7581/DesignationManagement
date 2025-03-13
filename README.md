@@ -4,7 +4,7 @@
 # **Designation Management System**  
 
 ## **Project Description**  
-Designation Management System is a web application built using Laravel that allows users to manage designations within an organization. It provides CRUD (Create, Read, Update, Delete) functionalities for designations and user roles.  
+Designation Management System is a web application built using Laravel that allows users to manage designations within an organization. It provides CRUD (Create, Read, Update, ) functionalities for designations and user roles.  
 
 ## **Features**  
 ✅ User Authentication (Login & Register)  
