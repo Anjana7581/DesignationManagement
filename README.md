@@ -9,7 +9,7 @@ Designation Management System is a web application built using Laravel that allo
 ## **Features**  
 ✅ User Authentication (Login & Register)  
 ✅ Role-Based Access Control  
-✅ Create, View, Edit, and Delete Designations  
+✅ Create, View, Edit Designations  
 ✅ Admin Dashboard for Managing Users & Designations  
 ✅ Responsive and User-Friendly Interface  
 
