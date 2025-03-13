@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DesignationController;
+use App\Http\Controllers\DashboardController;
+
 use App\Http\Controllers\UserController;
 
 // Public Routes
@@ -19,11 +21,12 @@ Route::middleware(['auth'])->group(function () {
 
 // Admin Routes (Only for Admins)
 Route::middleware(['admin'])->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard'); // Admin dashboard
-    })->name('admin.dashboard');
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
+
 
     Route::get('/admin/designations', [DesignationController::class, 'index'])->name('admin.designations.index');
+    Route::resource('/admin/designations', DesignationController::class);
+
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
 });
 

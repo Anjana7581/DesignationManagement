@@ -11,6 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Drop the tables if they already exist (to avoid conflicts during migration)
+        Schema::dropIfExists('users');
+        Schema::dropIfExists('designations');
+        Schema::dropIfExists('password_reset_tokens');
+        Schema::dropIfExists('sessions');
+
         // Create the designations table
         Schema::create('designations', function (Blueprint $table) {
             $table->id();
